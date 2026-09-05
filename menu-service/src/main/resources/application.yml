@@ -1,0 +1,30 @@
+server:
+  port: 8081
+  error:
+    include-message: always
+    include-stacktrace: always
+    include-binding-errors: always
+
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/dineflow
+    username: ${DB_USERNAME:dineflow}
+    password: ${DB_PASSWORD:dineflow}
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: false
+    # Without this, Spring Boot runs data.sql BEFORE Hibernate creates the tables,
+    # so every insert in data.sql silently fails (and continue-on-error hides it).
+    defer-datasource-initialization: true
+  sql:
+    init:
+      mode: always
+      continue-on-error: true
+
+# Must match order-service's jwt.secret - order-service issues tokens, this service only checks them.
+jwt:
+  secret: ${JWT_SECRET:dineflow-super-secret-key-change-me-please-32bytes}
+
+cors:
+  allowed-origin: ${FRONTEND_ORIGIN:http://localhost:5173}

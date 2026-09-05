@@ -1,0 +1,28 @@
+server:
+  port: 8082
+
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/dineflow
+    username: ${DB_USERNAME:dineflow}
+    password: ${DB_PASSWORD:dineflow}
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: false
+
+jwt:
+  # Must match menu-service's jwt.secret - this is the service that issues tokens.
+  secret: ${JWT_SECRET:dineflow-super-secret-key-change-me-please-32bytes}
+  expiration-minutes: 480
+
+cors:
+  allowed-origin: ${FRONTEND_ORIGIN:http://localhost:5173}
+
+menu-service:
+  base-url: ${MENU_SERVICE_URL:http://localhost:8081}
+
+# Seeded on first boot only if no admin user exists yet.
+admin:
+  default-username: ${ADMIN_USERNAME:admin}
+  default-password: ${ADMIN_PASSWORD:admin123}
