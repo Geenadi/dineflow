@@ -1,8 +1,6 @@
 # DineFlow
 
-A restaurant ordering & management prototype built for the Full-Stack Engineer internship
-assignment. Covers only the **must-have** features from the brief — no bonus items
-(docker-compose, tests, CI, Swagger) were added, to keep focus on the core system.
+A restaurant ordering & management prototype . 
 
 ## What's here
 
