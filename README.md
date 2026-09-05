@@ -177,10 +177,3 @@ VITE_ORDER_API_URL=http://localhost:8082
 - **Shared JWT secret** instead of a shared auth service: simpler to run locally for a system
   this size, while still keeping `menu-service` from trusting unauthenticated writes.
 
-## Report
-
-`report-template.md` is a skeleton for the submission report the brief asks for (highlights,
-challenges, what you'd improve, how AI could be used in this system, hours spent, and which AI
-tools you used for what). Fill in the honest, personal parts yourself — hours spent and the
-challenges you personally ran into aren't something a generated file can answer for you — then
-export it to PDF.
